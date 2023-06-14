@@ -341,6 +341,7 @@ function deepEqual(a,b){
 }
 
 let obj = {here: {is: "an"}, object: 2};
+console.log("Deep Equal Test");
 console.log(deepEqual(obj, obj));
 // → true
 console.log(deepEqual(obj, {here: 1, object: 2}));
@@ -351,4 +352,25 @@ console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 // Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 function moveZeros (nums) {
     // Code logic goes here
+    let right = nums.length-1;
+    let left = 0;
+
+    while (left < right){
+        if(nums[left] === 0){
+            for(let i = left ; i <= right; i++){
+                nums[i] = nums[i+1];
+            }
+            nums[right] = 0;
+            right--;
+        }
+        else{
+            left++;
+        }
+    }
 }
+
+let arr = [0,1,0,3,12];
+console.log("Input :", arr);
+
+moveZeros(arr);
+console.log("moveZeros Output :", arr);
